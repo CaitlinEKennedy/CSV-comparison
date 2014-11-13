@@ -1,0 +1,102 @@
+CSV-comparison
+==============
+Python 2.7.8 |Anaconda 2.1.0 (32-bit)| (default, Jul  2 2014, 15:13:35) [MSC v.1
+500 32 bit (Intel)]
+Type "copyright", "credits" or "license" for more information.
+
+IPython 2.2.0 -- An enhanced Interactive Python.
+Anaconda is brought to you by Continuum Analytics.
+Please check out: http://continuum.io/thanks and https://binstar.org
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+
+
+In [2]: import os
+
+
+
+
+
+In [6]: os.getcwd()
+Out[6]: 'C:\\Users\\575202\\Documents\\Python Scripts'
+
+In [7]: os.chdir('C:\\Users\\575202\\Documents\\csvFiles')
+
+In [8]: os.getcwd()
+Out[8]: 'C:\\Users\\575202\\Documents\\csvFiles'
+
+In [9]: open('simpleInput.csv','r')
+Out[9]: <open file 'simpleInput.csv', mode 'r' at 0x03A2EB78>
+
+In [10]: open('simpleInput2.csv','r')
+Out[10]: <open file 'simpleInput2.csv', mode 'r' at 0x03CAB440>
+
+In [11]: import csv
+
+In [12]: infile1=open('simpleInput.csv','r')
+
+In [13]: infile2=open('simpleInput2.csv','r')
+
+
+
+
+
+
+
+
+
+In [23]: csv_get(infile1)
+Out[23]: <generator object csv_get at 0x03D23AA8>
+
+In [24]: csv_get(infile2)
+Out[24]: <generator object csv_get at 0x03D1C508>
+
+In [25]: csv_cmp(infile1, infile2)
+
+
+In [29]: def csv_compare(csv1, csv2):
+   ....:     for row_1 in csv1:
+   ....:         csv1_row_1==row_1
+   ....:     for row_1 in csv2:
+   ....:         csv2_row_1==row_1
+   ....:     if csv1_row_1==csv2_row_1:
+   ....:         continue
+   ....:     else:
+   ....:         print "row_n does not match"
+   ....:
+  File "<ipython-input-29-d67e5520af42>", line 7
+    continue
+SyntaxError: 'continue' not properly in loop
+
+
+In [30]: def csv_compare(csv1,csv2):
+   ....:     for row_n in csv1:
+   ....:         csv1_row_n==row_n
+   ....:     for row_n in csv2:
+   ....:         csv2_row_n==row_n
+   ....:     for row_n in csv1,csv2:
+   ....:         if csv1_row_n==csv2_row_n:
+   ....:             print "row_n matches"
+   ....:         else:
+   ....:             print "row_n does not match"
+   ....:
+
+In [31]: csv_compare(infile1,infile2)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-31-65302a139cdf> in <module>()
+----> 1 csv_compare(infile1,infile2)
+
+<ipython-input-30-c895fa6b701d> in csv_compare(csv1, csv2)
+      5         csv2_row_n==row_n
+      6     for row_n in csv1,csv2:
+----> 7         if csv1_row_n==csv2_row_n:
+      8             print "row_n matches"
+      9         else:
+
+NameError: global name 'csv1_row_n' is not defined
+
+In [32]:
