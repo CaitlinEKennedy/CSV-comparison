@@ -1,0 +1,28 @@
+import os
+
+os.chdir('C:\\Users\\575202\\Documents\\csvFiles')
+os.getcwd()
+open('simpleInput.csv','r')
+open('simpleInput2.csv','r')
+import csv
+infile1=open('simpleInput.csv','r')
+infile2=open('simpleInput2.csv','r')
+def csv_compare(csv1,csv2):
+    for row_n in csv1:
+        csv1_row_n==row_n
+    for row_n in csv2:
+        csv2_row_n==row_n
+    for row_n in csv1,csv2:
+        if csv1_row_n==csv2_row_n:
+            print "row_n matches"
+        else:
+            print "row_n does not match"
+row_number=0
+for line1,line2 in zip(infile1,infile2):
+	
+	
+	row_number+=1
+	if line1==line2:
+		pass
+	else:
+		print row_number ,"does not match"
